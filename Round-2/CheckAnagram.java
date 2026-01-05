@@ -1,22 +1,21 @@
-<<<<<<< HEAD:Round-2/CheckAnagram.java
-class CheckAnagram {
+public class CheckAnagram {
     public static void main(String[] args) {
-        String input1 = "aabbcd";
-        String input2 = "abcdba"; 
-        boolean isAnagram = findAnagram(input1, input2);
-        System.out.println(isAnagram);  // Expected output: true
+        String s = "anagram";
+        String t = "nagaram";
+
+        System.out.println(isAnagram(s, t));
     }
 
-    private static boolean findAnagram(String input1, String input2) {
-        if (input1.length() != input2.length()) {
+    private static boolean isAnagram(String s, String t) {
+        if (s.length() != t.length()) {
             return false;
         }
 
-        int[] freq = new int[26];  // Only for lowercase letters a-z 
+        int[] freq = new int[26];
 
-        for (int i = 0; i < input1.length(); i++) {
-            freq[input1.charAt(i) - 'a']++;
-            freq[input2.charAt(i) - 'a']--;
+        for (int i = 0; i < s.length(); i++) {
+            freq[s.charAt(i) - 'a']++;
+            freq[t.charAt(i) - 'a']--;
         }
 
         for (int count : freq) {
@@ -28,35 +27,3 @@ class CheckAnagram {
         return true;
     }
 }
-=======
-class CheckAnagram {
-    public static void main(String[] args) {
-        String input1 = "aabbcd";
-        String input2 = "abcdba";
-        
-        boolean isAnagram = findAnagram(input1, input2);
-        System.out.println(isAnagram);  // Expected output: true
-    }
-
-    private static boolean findAnagram(String input1, String input2) {
-        if (input1.length() != input2.length()) {
-            return false;
-        }
-
-        int[] freq = new int[26];  // Only for lowercase letters a-z 
-
-        for (int i = 0; i < input1.length(); i++) {
-            freq[input1.charAt(i) - 'a']++;
-            freq[input2.charAt(i) - 'a']--;
-        }
-
-        for (int count : freq) {
-            if (count != 0) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-}
->>>>>>> b84da99 (patch work):CheckAnagram.java
