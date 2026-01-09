@@ -39,44 +39,37 @@
     Output: false
 */
 
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class ValidParenthesis {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String inputString = scanner.nextLine();
-        boolean isTrue = findValidParenthesis(inputString);
-        System.out.println(isTrue);
-        scanner.close();
+        String s = "([])";
+        System.out.println(isValid(s));
     }
 
-    private static boolean findValidParenthesis(String inputString) {
-        if(inputString.length()==0)
+    private static boolean isValid(String s) {
+        if (s.length() % 2 == 0) {
             return false;
+        }
 
-        Stack<Character> stack = new Stack<>();
-        for(char ch:inputString.toCharArray()){
-            if(ch=='('||ch=='['||ch=='{'){
-                stack.push(ch);
-            }
-            else if(ch==')'){
-                if(stack.peek()=='('&& !stack.isEmpty()){
-                    stack.pop();
+        Deque<Character> stack = new ArrayDeque<>();
+
+        for (char c : s.toCharArray()) {
+            if (c == '(' || c == '{' || c == '[') {
+                stack.push(c);
+            } else {
+                if (stack.isEmpty()) {
+                    return false;
                 }
-                else return false;
-            }
-            else if(ch==']'){
-                if(stack.peek()=='['&& !stack.isEmpty()){
-                    stack.pop();
+
+                char top = stack.pop();
+
+                if ((c == ')' && top != '(') ||
+                        (c == '}' && top != '{') ||
+                        (c == ']' && top != '[')) {
+                    return false;
                 }
-                else return false;
-            }
-            else if(ch=='}'){
-                if(stack.peek()=='{'&& !stack.isEmpty()){
-                    stack.pop(); 
-                }
-                else return false;
             }
         }
 
