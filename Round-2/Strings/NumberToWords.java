@@ -5,7 +5,7 @@ public class NumberToWords {
     private static final String[] belowTwenty = {
             "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fiveteen", "Sixteen", "Seventeen", "Eightteen",
             "Nineteen"
-    };
+    }; 
     private static final String[] tens = {
             "", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"
     };
