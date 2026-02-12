@@ -12,7 +12,7 @@ public class MultiplyStrings {
             return "0";
         }
 
-        int m = num1.length();
+        int m = num1.length(); 
         int n = num1.length();
         int[] result = new int[m + n];
 
